@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="net.codejava.spring.model">
+	<class name="CakeTO" table="CAKES">
+		<id name="cakeId" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="cakeName" column="CAKE_NAME" />
+		<property name="cakeUrl" column="CAKE_PATH" />
+		<property name="cakePrice" column="PRICE" />
+		<property name="type" column="CAKE_TYPE" />
+		<property name="occassion" column="CAKE_OCCASSION" />
+		<property name="sub_type" column="CAKE_SUB_TYPE" />
+	</class>
+	
+	<class name="CartTo" table="CART">
+		<id name="cartid" column="id">
+			<generator class="increment"/>
+		</id>
+		<property name="cakeId" column="CAKE_ID" />
+		<property name="userId" column="USER_ID" />
+		<property name="cakeName" column="CAKE_NAME" />
+		<property name="cakeUrl" column="CAKE_PATH" />
+		<property name="cakePrice" column="PRICE" />
+		<property name="type" column="CAKE_TYPE" />
+		<property name="occassion" column="CAKE_OCCASSION" />
+		<property name="sub_type" column="CAKE_SUB_TYPE" />
+	</class>	
+</hibernate-mapping>

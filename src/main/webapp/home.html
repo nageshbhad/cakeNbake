@@ -1,0 +1,219 @@
+<section id="slider">
+	<!--slider-->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="slider-carousel" class="carousel slide"
+					data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#slider-carousel" data-slide-to="0"
+							class="active"></li>
+						<li data-target="#slider-carousel" data-slide-to="1"></li>
+						<li data-target="#slider-carousel" data-slide-to="2"></li>
+					</ol>
+
+					<div class="carousel-inner backColor">
+						<div class="item active">
+							<div class="col-sm-6">
+								<h1>
+									<span>My</span>-Cake N Bake
+								</h1>
+								<h2>Best Place for Cakes and Bakery Items</h2>
+								<p>MyCakeNBake offer creatively designed edible custom
+									cookie arrangements, cookie gift baskets, cookie cakes, cookie
+									bouquets & gourmet cookies. MyCakeNBake prepare fresh mouth
+									watering cookies for any beautiful occasion in your life</p>
+								
+							</div>
+							<div class="col-sm-6">
+								<img src="images/home/sliderImg1.png"
+									class="cakeHome img-responsive" alt="" />
+
+							</div>
+						</div>
+						<div class="item">
+							<div class="col-sm-6">
+								<h1>
+									<span>MY</span>-CAKE N BAKE
+								</h1>
+								<h2>Best Birthday Cakes Ever</h2>
+								<p>MycakeNbake present a wide range of Chocolates Bouquet
+									especially for Rose Day , Birthday's & Valentine Day.These Chocolate Bouquet are
+									made from premium quality MycakeNbake can persionalize as per
+									your requirement along with our creativity.</p>
+								
+							</div>
+							<div class="col-sm-6">
+								<img src="images/home/sliderImg2.png"
+									class="cakeHome img-responsive" alt="" />
+
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="col-sm-6">
+								<h1>
+									<span>MY</span>-CAKE N BAKE
+								</h1>
+								<h2>Buy Anniversary Cakes Here</h2>
+								<p>Your wedding cake is like the exclamation point on the
+									reception and it should be a total reflection of your style and
+									taste. MyCakeNBake have the capability of taking any amount of
+									order and promise you to deliver as per your requirement and
+									satisfaction.</p>
+								
+							</div>
+							<div class="col-sm-6">
+								<img src="images/home/sliderImg3.png"
+									class="cakeHome img-responsive" alt="" />
+
+							</div>
+						</div>
+
+					</div>
+
+					<a data-target="#slider-carousel"
+						class="left control-carousel hidden-xs" data-slide="prev"> <i
+						class="fa fa-angle-left"></i>
+					</a> <a data-target="#slider-carousel"
+						class="right control-carousel hidden-xs" data-slide="next"> <i
+						class="fa fa-angle-right"></i>
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+<!--/slider-->
+
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="left-sidebar">
+					<h2>Category</h2>
+					<div class="panel-group category-products" id="accordian">
+						<!--category-productsr-->
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterCakeType('vanilla');">vanilla</a>
+								</h4>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterCakeType('chocolate');">chocolate</a>
+								</h4>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterCakeType('strawberry');">strawberry</a>
+								</h4>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterCakeType('kiwi');">kiwi</a>
+								</h4>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterOccasion('kids');">kids</a>
+								</h4>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterOccasion('couples');">couples</a>
+								</h4>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterOccasion('teachers');">teachers</a>
+								</h4>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterOccasion('sports');">sports</a>
+								</h4>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterOccasion('anniversary');">anniversary</a>
+								</h4>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="" ng-click="filterOccasion('all');">All</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+					<!--/category-products-->
+
+
+
+
+
+				</div>
+			</div>
+
+			<div class="col-sm-9 padding-right">
+				<div class="features_items">
+					<!--features_items-->
+					<h2 class="title text-center">Features Items</h2>
+					<div class="col-sm-4" ng-repeat="x in homePageProducts">
+						<div class="product-image-wrapper">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<img ng-src={{x.cakeUrl}} alt="" />
+									<h2>{{x.cakePrice}}</h2>
+									<p>{{x.cakeName}}</p>
+									<label> <input type="radio" ng-model="x.size"
+										value="1/2 Kg"> 1/2 Kg
+									</label> <label> <input type="radio" ng-model="x.size"
+										value="1 Kg"> 1 Kg
+									</label> <label> <input type="radio" ng-model="x.size"
+										value="2 Kg"> 2 Kg
+									</label>
+									<button ng-click="addToCart(x)"
+										class="btn btn-default add-to-cart">
+										<i class="fa fa-shopping-cart"></i>Add to cart
+									</button>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+				<!--features_items-->
+
+
+
+			</div>
+		</div>
+	</div>
+</section>

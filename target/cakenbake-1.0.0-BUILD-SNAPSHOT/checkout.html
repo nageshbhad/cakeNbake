@@ -1,0 +1,200 @@
+
+
+<section id="cart_items">
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li><a href="#home">Home</a></li>
+				<li class="active">Check out</li>
+			</ol>
+		</div>
+		<!--/breadcrums-->
+
+		<div class="step-one">
+			<h2 class="heading">Step1</h2>
+		</div>
+
+
+
+
+		<div class="shopper-informations">
+			<div class="row">
+
+				<div class="col-sm-8 clearfix">
+					<div class="bill-to">
+						<p>Bill To</p>
+						<div class="form-one">
+							<form name="checkOutform" novalidate>
+								<input ng-model="orderDetails.emailId" name="email" type="email"
+									placeholder="Email*" required> </br> <span
+									style="color: red"
+									ng-show="checkOutform.$submitted || checkOutform.email.$touched">
+									<span ng-show="checkOutform.email.$error.required">Email
+										is required.</span> <span ng-show="checkOutform.email.$error.email">Invalid
+										email address.</span>
+								</span> <input ng-model="orderDetails.name" name="fname" type="text"
+									placeholder="First Name *" required> <span
+									style="color: red"
+									ng-show="checkOutform.$submitted ||checkOutform.fname.$touched">
+									<span ng-show="checkOutform.fname.$error.required"> Name
+										is required.</span>
+								</span> <input type="text" placeholder="Last Name "> <input
+									type="text" name="Number" ng-model="orderDetails.phoneNo"
+									placeholder="mobile no. *" required
+									ng-pattern="/^[0-9]{10,10}$/" /> </br> <span style="color: red"
+									ng-show="checkOutform.$submitted ||checkOutform.Number.$touched">
+									<span ng-show="checkOutform.Number.$error.required">
+										phoneNo is required.</span><span
+									ng-show="checkOutform.Number.$error.pattern">Invalid
+										phoneNo.</span>
+								</span>
+							</form>
+						</div>
+						<div class="form-two">
+							<form name ="addressForm" novalidate>
+								<input ng-model="orderDetails.zipCode" name="zip" type="text" placeholder="Zip / Postal Code *" required>
+								<span
+									style="color: red"
+									ng-show="addressForm.$submitted ||addressForm.zip.$touched">
+									<span ng-show="addressForm.zip.$error.required"> Zip code is required</span> </span>
+								<input ng-model="orderDetails.address1" name="address1" type="text" placeholder="Address 1 *" required> 
+								<span
+									style="color: red"
+									ng-show="addressForm.$submitted ||addressForm.address1.$touched">
+									<span ng-show="addressForm.address1.$error.required">Address is required</span> </span>
+								<input   ng-model="orderDetails.address2" type="text" placeholder="Address 2">
+
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="order-message">
+						<p>Shipping Order</p>
+						<textarea ng-model="orderDetails.message" name="message"
+							placeholder="Notes about your order, Special Notes for Delivery"
+							rows="16"></textarea>
+						<label><input type="checkbox"> Shipping to bill
+							address</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="review-payment">
+			<h2>Review & Payment</h2>
+		</div>
+
+		<div class="table-responsive cart_info">
+			<table class="table table-condensed">
+				<thead>
+					<tr class="cart_menu">
+						<td class="image">Item</td>
+						<td class="description"></td>
+						<td class="price">Price</td>
+						<td class="quantity">Quantity</td>
+						<td class="total">Total</td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="x in cartAddedProducts">
+						<td class="cart_product"><a href=""><img class="img-responsive"
+								ng-src={{x.cakeUrl}} alt=""></a></td>
+						<td class="cart_description">
+							<h4>
+								<a href="">{{x.cakeName}}</a>
+							</h4>
+							<p>Web ID: {{x.cakeId}}</p>
+						</td>
+						<td class="cart_price">
+							<p>{{x.cakePrice}}</p>
+						</td>
+
+						<td class="cart_quantity">
+							<p>{{x.size}}</p>
+						</td>
+						<td class="cart_total">
+							<p class="cart_total_price">{{x.cakePrice}}</p>
+						</td>
+						<td class="cart_delete"><a class="cart_quantity_delete"
+							ng-click="deleteFromCart(x)"><i class="fa fa-times"></i></a></td>
+					</tr>
+
+
+					<tr>
+						<td colspan="4">&nbsp;</td>
+						<td colspan="2">
+							<table class="table table-condensed total-result">
+								<tr>
+									<td>Cart Sub Total</td>
+									<td>{{totalAmt}}</td>
+
+								</tr>
+
+								<tr class="shipping-cost">
+									<td>Shipping Cost</td>
+									<td>Free</td>
+								</tr>
+								<tr>
+									<td>Total</td>
+									<td><span>{{totalAmt}}</span></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="payment-options">
+			<!-- <span>
+						<label><input type="checkbox"> Direct Bank Transfer</label>
+					</span>
+					<span>
+						<label><input type="checkbox"> Check Payment</label>
+					</span>
+					<span>
+						<label><input type="checkbox"> Paypal</label>
+					</span> -->
+
+			<button ng-disabled="checkOutform.$invalid || addressForm.$invalid" type="submit"
+				class="btn btn-info btn-lg" ng-click="placeOrder(orderDetails)">Place order</button>
+			</br> </br> <span ng-show="checkOutform.$invalid || addressForm.$invalid">**please fill the
+				above form to place order</span>
+		</div>
+
+	</div>
+
+	<div class="container">
+		<!-- Trigger the modal with a button -->
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Order Placed Successfully</h4>
+					</div>
+					<div class="modal-body">
+						<p>Thank You !!!</p>
+						<p>Please Call us at 9158666757 to place your order</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="close" data-dismiss="modal">
+							<a class="btn btn-default check_out" href="#home">Close</a>
+						</button>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</section>
+<!--/#cart_items-->
+
+
+
